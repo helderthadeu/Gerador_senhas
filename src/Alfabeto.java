@@ -25,7 +25,9 @@ public class Alfabeto {
 			letras.append(Especiais);
 		}
 	}
-
+	
+	
+	
 	public void criaAlfabeto(String senha, int incremento) {
 		int tempnum = 0;
 		String chave = eleminaRepeticoes(senha);
@@ -70,5 +72,7 @@ public class Alfabeto {
 
 		return letras.toString();
 	}
-
+	
+	
+	
 }

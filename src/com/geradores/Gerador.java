@@ -1,32 +1,35 @@
+package com.geradores;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.Random;
 
-
 public class Gerador {
 
-	static void salvarSenhas(String idSenha, String senha) throws Exception {
+	public static void salvarSenhas(String idSenha, String senha, String caminhoArquivo) throws Exception {
 
-		File file = new File("senhas.txt");
+		File file = new File(caminhoArquivo);
+
 		BufferedWriter writer = new BufferedWriter(new FileWriter(file, true));
 
-		writer.write( idSenha + " " + senha + " ");
-		
+		writer.write(idSenha + " " + senha + " ");
+
 		writer.close();
 		file = null;
 	}
 
-	static String geradorSenha(boolean letraMaiuscula, boolean letraMinuscula, boolean numeros, boolean caracterEspecial, int tamanhoSenha) throws Exception {
-		
+	public static String geradorSenha(boolean letraMaiuscula, boolean letraMinuscula, boolean numeros,
+			boolean caracterEspecial, int tamanhoSenha) throws Exception {
+
 		String senhaGerada = "";
 		senhaGerada = Gerador.gerarSenha(letraMaiuscula, letraMinuscula, numeros, caracterEspecial, tamanhoSenha);
 		return senhaGerada;
 
 	}
 
-	static String gerarSenha(boolean letraMaiuscula, boolean letraMinuscula, boolean numeros, boolean caracterEspecial,
-			int tamanho) throws Exception {
+	public static String gerarSenha(boolean letraMaiuscula, boolean letraMinuscula, boolean numeros,
+			boolean caracterEspecial, int tamanho) throws Exception {
 		Alfabeto letras = new Alfabeto(letraMaiuscula, letraMinuscula, numeros, caracterEspecial);
 		StringBuilder senhaGerada = new StringBuilder();
 		Random rand = new Random();
@@ -40,7 +43,7 @@ public class Gerador {
 		return senhaGerada.toString();
 	}
 
-	static String verificaSenha(String senha) throws Exception {
+	public static String verificaSenha(String senha) throws Exception {
 		String forca;
 		double cont = 0;
 		boolean possuiMaiuscula = false;
@@ -96,12 +99,13 @@ public class Gerador {
 			forca = "Muito Fraca";
 		}
 
-		return "Sua Senha é: " + forca;
+		return "Sua Senha é " + forca;
 	}
 
-	static String printmenu() {
+	public static String printmenu() {
 		return "Escolha uma opção: " + "\n1 - Gerar Senha aleatoriamente." + "\n2 - Verificar 'força' da senha."
-				+ "\n3 - Salvar senhas em arquivo." + "\n4 - Verificar Senhas criptografadas salvas." + "\n5 - Criptografar arquivos (já criados) com senhas em um novo arquivo."
+				+ "\n3 - Salvar senhas em arquivo." + "\n4 - Criptografar arquivos (já criados) com senhas em um novo arquivo." 
+				+ "\n5 - Verificar Senhas criptografadas salvas."
 				+ "\n6 - Sair";
 	}
 

@@ -1,3 +1,4 @@
+package com.geradores;
 
 public class FuncoesAuxiliares {
 	static public Boolean jahPossui(String str) {

@@ -1,3 +1,4 @@
+package com.geradores;
 
 public class Alfabeto {
 
@@ -26,12 +27,10 @@ public class Alfabeto {
 		}
 	}
 	
-	
-	
 	public void criaAlfabeto(String senha, int incremento) {
 		int tempnum = 0;
 		String chave = eleminaRepeticoes(senha);
-		System.out.println("Chave sem repetições: " + chave);
+//		System.out.println("Chave sem repetições: " + chave);
 		while (letras.length() < 127) {
 			for (int i = 0; i < chave.length(); i++) {
 				int tempval = chave.charAt(i) + incremento + tempnum;

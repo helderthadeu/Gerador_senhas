@@ -12,6 +12,7 @@ import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 import javax.swing.Box;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFileChooser;
@@ -43,8 +44,7 @@ public class InterfaceDesktop extends JFrame {
 	private Fontes fontes = new Fontes();
 
 	public InterfaceDesktop() {
-		this.setIconImage(Toolkit.getDefaultToolkit().getImage("\\src\\Files\\Logo.ico"));
-				
+		this.setIconImage(new ImageIcon("src\\Files\\Logo.png").getImage());
 		try {
 			
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
